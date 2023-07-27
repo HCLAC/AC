@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mysql on HCLAC 个人博客</title>
+    <link>https://hclac.github.io/AC/tags/mysql/</link>
+    <description>Recent content in mysql on HCLAC 个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 25 Nov 2020 17:19:53 +0000</lastBuildDate><atom:link href="https://hclac.github.io/AC/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mysql常识&amp;命令&amp;高级用法</title>
+      <link>https://hclac.github.io/AC/posts/mysql/</link>
+      <pubDate>Wed, 25 Nov 2020 17:19:53 +0000</pubDate>
+      
+      <guid>https://hclac.github.io/AC/posts/mysql/</guid>
+      <description>常用命令Link to heading命令行登录服务mysql -h 127.0.0.1:3306 -u root -p回车后，输入密码 命令行操作别忘记最后的分号; 跳转到data01数据库：use data01 创建用户&amp;amp;授权用户 创建本地用户:user01,密码:xxx:create user user01@&#39;%&#39; identified by &#39;xxx&#39;; 创建远程用户：create user ‘user02’@&#39;%&#39; identified by &#39;xxx&#39;; 授权data01数据库全部权限给user01grant all privileges on data01.* to user01; 授权data01数据库只读权限给user02GRANT SELECT ON data01.* TO &#39;user01&#39;; 有可能修改my.conf，去掉bind-address=127.0.0.1 显示所有用户:SELECT DISTINCT User FROM mysql.user; 显示所有数据库：show databases; 显示所有表：show tables; 删除数据库：drop data001; 创建新库data01：create database data01; create schema data01; table01表在col01添加col02字段，类型：varchar(255)，默认值：xxxalter table table01 add column col02 varchar(255) DEFAULT NULL after col01; table01表修改col01字段属性：alter table table01 modify col01 varchar(500) default &#39;&#39; not null comment &#39;图片地址&#39;; 插入数据：INSERT INTO table01(col01,col02) VALUES(xx,xx); 修改table01表的col01字段数据，添加字符串前缀，Update后面可以加where：UPDATE table01 SET col01= CONCAT(&#39;user_&#39;,col01); 删除数据：delete from table01 where .</description>
+    </item>
+    
+  </channel>
+</rss>

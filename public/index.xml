@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HCLAC 个人博客</title>
+    <link>https://hclac.github.io/AC/</link>
+    <description>Recent content on HCLAC 个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 25 Nov 2020 17:19:53 +0000</lastBuildDate><atom:link href="https://hclac.github.io/AC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mysql常识&amp;命令&amp;高级用法</title>
+      <link>https://hclac.github.io/AC/posts/mysql/</link>
+      <pubDate>Wed, 25 Nov 2020 17:19:53 +0000</pubDate>
+      
+      <guid>https://hclac.github.io/AC/posts/mysql/</guid>
+      <description>常用命令Link to heading命令行登录服务mysql -h 127.0.0.1:3306 -u root -p回车后，输入密码 命令行操作别忘记最后的分号; 跳转到data01数据库：use data01 创建用户&amp;amp;授权用户 创建本地用户:user01,密码:xxx:create user user01@&#39;%&#39; identified by &#39;xxx&#39;; 创建远程用户：create user ‘user02’@&#39;%&#39; identified by &#39;xxx&#39;; 授权data01数据库全部权限给user01grant all privileges on data01.* to user01; 授权data01数据库只读权限给user02GRANT SELECT ON data01.* TO &#39;user01&#39;; 有可能修改my.conf，去掉bind-address=127.0.0.1 显示所有用户:SELECT DISTINCT User FROM mysql.user; 显示所有数据库：show databases; 显示所有表：show tables; 删除数据库：drop data001; 创建新库data01：create database data01; create schema data01; table01表在col01添加col02字段，类型：varchar(255)，默认值：xxxalter table table01 add column col02 varchar(255) DEFAULT NULL after col01; table01表修改col01字段属性：alter table table01 modify col01 varchar(500) default &#39;&#39; not null comment &#39;图片地址&#39;; 插入数据：INSERT INTO table01(col01,col02) VALUES(xx,xx); 修改table01表的col01字段数据，添加字符串前缀，Update后面可以加where：UPDATE table01 SET col01= CONCAT(&#39;user_&#39;,col01); 删除数据：delete from table01 where .</description>
+    </item>
+    
+    <item>
+      <title>hexo&#43;github搭建个人博客</title>
+      <link>https://hclac.github.io/AC/posts/hexo-github-self-blog/</link>
+      <pubDate>Sun, 22 Nov 2020 21:46:32 +0000</pubDate>
+      
+      <guid>https://hclac.github.io/AC/posts/hexo-github-self-blog/</guid>
+      <description>github PageLink to headinghexoLink to headingnext主题Link to heading</description>
+    </item>
+    
+    <item>
+      <title>goland-IDE开发环境配置</title>
+      <link>https://hclac.github.io/AC/posts/goland-ide%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Tue, 20 Oct 2020 15:09:57 +0000</pubDate>
+      
+      <guid>https://hclac.github.io/AC/posts/goland-ide%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid>
+      <description>goland由JetBrains公司提供的golang语言集成开发工具，基于IntelliJ平台，功能强大，插件丰富，易上手理解。
+下载地址: https://www.jetbrains.com/go/
+本机环境：
+macos–10.15.5 (19F101)
+goland–2020.1
+golang–1.12.7(brew下载)
+git代码管理
+goland插件：
+默认插件、git/github .ignore、markdown、sftp等
+项目创建Link to heading因为现在很多开发都是结合git来维护代码，那么一般有两种方式获取golang项目
+创建项目：file-&amp;gt;new-&amp;gt;project，项目目录最好选择在GOPATH目录下的src里面，如果有自己的github仓库，选择在github.com/xxx/下，这样不需要配置项目，即可使用github上的第三方库，这种情况适用于vendor方式管理依赖库。 从github或者gitlab一些代码管理服务上拉取golang项目。 使用go get，会下载到GOPATH目录下的src里，常见参数：
+-v显示执行命令日志。
+-d 下载完成后编译安装
+-u 同步下载依赖库 使用git clone缺省模式会下载到当前目录，当然git clone也可以指定存放目录:
+git clone https://github.com/xxx/xxx.git xxx。 项目配置Link to heading新项目，配置.gitignore，如果安装.ignore插件，右键项目在new-&amp;gt;.ignore file里面选择.gitignore，可以选择模板，比如用户模板、语言模板 平台模板等。 配置gopath，goland有三种gopath: Global/Project/Modules， Global一般保持不变，如果使用vendor维护依赖库，其他不需要配置。 Project看项目位置，不在Global目录下，修改成项目位置。 Modules最好设置成Global目录，这样所有的mod下载包同一位置。 配置go mod，golang1.11.1官方提供的包管理工具。在goland的Preferences-&amp;gt;Go-&amp;gt;Go Modules里，勾选Enable，国内环境因素，最好配置环境变量：GOPROXY=xxx，方便下载一些包： https://goproxy.cnhttps://goproxy.iohttps://mirrors.aliyun.com/goproxy/http://127.0.0.1:1081 # 自己的翻墙工具 配置filewatcher，在Preferences-&amp;gt;tools-&amp;gt;File Watchers，常用工具如下： go fmt : 统一的代码格式化工具（必须）。 golangci-lint : 静态代码质量检测工具，用于包的质量分析（推荐）。运行提示找不到当前包的路径，可以修改golangci-lint里的环境变量$GOPATH，添加当前包路径。 goimports : 自动import依赖包工具（可选）。 golint : 代码规范检测，并且也检测单文件的代码质量，比较出名的Go质量评估站点Go Report在使用（可选）。</description>
+    </item>
+    
+  </channel>
+</rss>
